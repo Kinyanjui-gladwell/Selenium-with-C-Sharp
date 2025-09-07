@@ -16,7 +16,14 @@ namespace MySeleniumTests
         [SetUp]
         public void Setup()
         {
-            driver = new ChromeDriver();
+            var options = new ChromeOptions();
+            options.AddArgument("--no-sandbox");
+            options.AddArgument("--disable-dev-shm-usage");
+            options.AddArgument("--disable-gpu");
+            options.AddArgument("--headless=new"); // good for CI
+            options.AddArgument($"--user-data-dir={Path.Combine(Path.GetTempPath(), $"selenium_{Guid.NewGuid()}")}");
+        
+            driver = new ChromeDriver(options);
         }
 
         [Test]
@@ -182,12 +189,9 @@ namespace MySeleniumTests
         [TearDown]
         public void Teardown()
         {
-            if (driver != null)
-            {
-                driver.Quit();
-                driver.Dispose();
-                driver = null;
-            }
+            driver?.Quit();
+            driver = null;
         }
+        
     }
 }
