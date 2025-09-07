@@ -24,6 +24,9 @@ jobs:
         
     - name: Restore dependencies
       run: dotnet restore
+
+    - name: Linting
+      run: dotnet format analyzers --verify-no-changes --severity warn
       
     - name: Build
       run: dotnet build --no-restore
