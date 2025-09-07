@@ -44,6 +44,7 @@ namespace MySeleniumTests
         [Test]
         public void DropDownInteractions()
         {
+            Thread.Sleep(5000);
            driver.Navigate().GoToUrl("https://www.selenium.dev/");
            IWebElement aboutDropDown = driver.FindElement(By.Id("navbarDropdown"));
            aboutDropDown.Click();
@@ -65,6 +66,7 @@ namespace MySeleniumTests
         [Test]
         public void RadioButtons_CheckBoxes()
         {
+            Thread.Sleep(5000);
            driver.Navigate().GoToUrl("https://practice.expandtesting.com/radio-buttons");
            IWebElement colour = driver.FindElement(By.Id("red"));
            if (!colour.Selected)
@@ -89,6 +91,7 @@ namespace MySeleniumTests
         [Test]
         public void MultipleWindows()
         {
+            Thread.Sleep(5000);
            driver.Navigate().GoToUrl("https://www.hyrtutorials.com/p/window-handles-practice.html");
 
            string mainWindow = driver.CurrentWindowHandle;
@@ -127,6 +130,7 @@ namespace MySeleniumTests
         [Test]
         public void DragandDrop()
         {
+            Thread.Sleep(5000);
            driver.Navigate().GoToUrl("https://practice.expandtesting.com/drag-and-drop");
            IWebElement source = driver.FindElement(By.Id("column-a"));
            IWebElement target = driver.FindElement(By.Id("column-b"));
@@ -140,6 +144,7 @@ namespace MySeleniumTests
         [Test]
         public void TakeScreenshot()
         {
+            Thread.Sleep(5000);
            driver.Navigate().GoToUrl("https://practice.expandtesting.com/");
            //full page
            ITakesScreenshot takesScreenshot = (ITakesScreenshot)driver;
@@ -170,6 +175,7 @@ namespace MySeleniumTests
         [Test]
         public void Alerts()
         {
+            Thread.Sleep(5000);
             driver.Navigate().GoToUrl("https://the-internet.herokuapp.com/javascript_alerts");
 
             IWebElement confirmButton = driver.FindElement(By.XPath("//button[text()='Click for JS Confirm']"));
