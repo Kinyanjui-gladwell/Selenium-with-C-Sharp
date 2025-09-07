@@ -11,7 +11,7 @@ namespace MySeleniumTests
 {
     public class Tests
     {
-        private IWebDriver driver;
+        private IWebDriver? driver;
 
         [SetUp]
         public void Setup()
@@ -190,6 +190,7 @@ namespace MySeleniumTests
         public void Teardown()
         {
             driver?.Quit();
+            driver?.Dispose();
             driver = null;
         }
         
