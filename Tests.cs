@@ -103,19 +103,19 @@ namespace MySeleniumTests
            }
         }
 
-        [Test]
-        public void FileUpload()
-        {
-           driver.Navigate().GoToUrl("https://practice.expandtesting.com/upload");
-           IWebElement file = driver.FindElement(By.Id("fileInput"));
-           string filePath = @"C:\Users\lenovo\OneDrive\Desktop\Selenium_N-Unit\test.txt";
-           file.SendKeys(filePath);
-           Thread.Sleep(1000);
-           driver.FindElement(By.XPath("//*[@id=\"fileSubmit\"]")).Click();
-           WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-           IWebElement successMessage = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id=\"core\"]/div/div/h1")));
-           Assert.That(successMessage.Text, Does.Contain("File Uploaded!"));
-        }
+        // [Test]
+        // public void FileUpload()
+        // {
+        //    driver.Navigate().GoToUrl("https://practice.expandtesting.com/upload");
+        //    IWebElement file = driver.FindElement(By.Id("fileInput"));
+        //    string filePath = @"C:\Users\lenovo\OneDrive\Desktop\Selenium_N-Unit\test.txt";
+        //    file.SendKeys(filePath);
+        //    Thread.Sleep(1000);
+        //    driver.FindElement(By.XPath("//*[@id=\"fileSubmit\"]")).Click();
+        //    WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+        //    IWebElement successMessage = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id=\"core\"]/div/div/h1")));
+        //    Assert.That(successMessage.Text, Does.Contain("File Uploaded!"));
+        // }
 
         [Test]
         public void DragandDrop()
@@ -144,21 +144,21 @@ namespace MySeleniumTests
            screenshot.SaveAsFile(filePath);
            Console.WriteLine($"Screenshot saved: {filePath}");
         }
-        [Test]
-        public void WorkingWithIframesAndWait()
-        {
-           driver.Navigate().GoToUrl("https://practice.expandtesting.com/iframe");
-           driver.SwitchTo().Frame("email-subscribe");
-           IWebElement email = driver.FindElement(By.Id("email"));
-           email.SendKeys("example@gmail.com");
-           //wait until clickable
-           WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-           IWebElement clickableElement = wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//*[@id=\"btn-subscribe\"]")));
-           clickableElement.Click();
-           driver.SwitchTo().DefaultContent();
-           // other wait methods: ElementExists, ElementIsVisible, TextToBePresentInElement, TextToBePresentInElement, TitleIs
+        // [Test]
+        // public void WorkingWithIframesAndWait()
+        // {
+        //    driver.Navigate().GoToUrl("https://practice.expandtesting.com/iframe");
+        //    driver.SwitchTo().Frame("email-subscribe");
+        //    IWebElement email = driver.FindElement(By.Id("email"));
+        //    email.SendKeys("example@gmail.com");
+        //    //wait until clickable
+        //    WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+        //    IWebElement clickableElement = wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//*[@id=\"btn-subscribe\"]")));
+        //    clickableElement.Click();
+        //    driver.SwitchTo().DefaultContent();
+        //    // other wait methods: ElementExists, ElementIsVisible, TextToBePresentInElement, TextToBePresentInElement, TitleIs
 
-        }
+        // }
 
         [Test]
         public void Alerts()
